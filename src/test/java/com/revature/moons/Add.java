@@ -2,34 +2,46 @@ package com.revature.moons;
 
 import com.revature.TestRunner;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
 
 public class Add {
 
-
-    @Given("user is logged in")
-    public void userIsLoggedIn() {
-
+    @Given("user on Home page")
+    public void userOnHomePage() {
+        Assert.assertEquals("http://localhost:8080/planetarium", TestRunner.driver.getCurrentUrl());
     }
 
-    @And("user on Home page")
-    public void userOnHomePage() {
+    @And("user is logged in")
+    public void userIsLoggedIn() {
+        System.out.println("TEST TEST TEST TEST TEST TEST TEST TEST TEST");
+        String res = TestRunner.driver.findElement(By.xpath("//pre")).getText();
+
+        Assert.assertTrue(res.isEmpty());
     }
 
     @When("user enters planet {string}")
     public void userEntersPlanet(String arg0) {
+        TestRunner.home.enterPlanet(arg0);
     }
 
     @And("user enters file {string}")
     public void userEntersFile(String arg0) {
+        TestRunner.home.enterFile(arg0);
     }
 
     @Then("browser alert says {string}")
     public void browserAlertSays(String arg0) {
+        Assert.assertEquals(arg0, TestRunner.driver.switchTo().alert().getText());
     }
 
     @And("return to Home page")

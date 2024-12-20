@@ -1,7 +1,7 @@
 package com.revature;
 
-import com.revature.pom.Planetarium;
-import com.revature.registration.Register;
+import com.revature.pom.Home;
+import com.revature.pom.Signup;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
@@ -9,6 +9,9 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -20,13 +23,20 @@ public class TestRunner {
 
     public static WebDriver driver = null;
 
-    public static Planetarium planetarium;
+    public static Signup signup;
+    public static Home home;
+
+    public static WebDriverWait wait;
 
     @BeforeClass
     public static void setup() {
         driver = new FirefoxDriver();
-        
-        planetarium = new Planetarium(driver);
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+
+        signup = new Signup(driver);
+
+        home = new Home();
 
     }
 

@@ -1,12 +1,18 @@
 package com.revature.pom;
 
+import com.revature.TestRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Planetarium {
+/*
+    This class works for both the Login and Registration pages
+    The id's for interactions are uniform across either page, so logic is consolidated
+    into one class
+ */
+public class Signup {
 
     @FindBy(id = "usernameInput")
     private WebElement userField;
@@ -17,15 +23,9 @@ public class Planetarium {
     @FindBy(linkText = "Create an Account")
     private WebElement registerLink;
 
-    private WebDriver driver;
 
-    public Planetarium(WebDriver driver) {
-        this.driver = driver;
+    public Signup(WebDriver driver) {
         PageFactory.initElements(driver, this);
-    }
-
-    public void gotoSite(String address) {
-        driver.get(address);
     }
 
     public void clickRegister() {
@@ -37,16 +37,19 @@ public class Planetarium {
             case "username":
                 userField.sendKeys(text);
                 break;
+
             case "password":
                 passwordField.sendKeys(text);
                 break;
+
             default:
                 throw new Exception("Invalid field");
         }
     }
 
     public void submitRegister() {
-        WebElement submit = driver.findElement(By.xpath("//input[@type='submit']"));
-        submit.click();
+        TestRunner.driver
+                .findElement(By.xpath("//input[@type='submit']"))
+                .click();
     }
 }
