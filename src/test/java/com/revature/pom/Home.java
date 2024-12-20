@@ -1,9 +1,11 @@
 package com.revature.pom;
 
 import com.revature.TestRunner;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -31,10 +33,17 @@ public class Home {
     @FindBy(xpath = "//button[@class='submit-button']")
     private WebElement submitButton;
 
+    @FindBy(xpath = "//button[@id='deleteButton'")
+    private WebElement deleteButton;
+
+    @FindBy(xpath = "//h1")
+    private WebElement heading;
+
+    @FindBy(xpath = "//select")
+    private WebElement selectBodyType;
 
     public Home() {
         PageFactory.initElements(TestRunner.driver, this);
-
     }
 
     public int countBodies() {
@@ -55,6 +64,21 @@ public class Home {
 
     public void enterFile(String file) {
         browseFiles.sendKeys(file);
+    }
+
+    public void selectType(String type) {
+        Select planetType =new Select(TestRunner.driver.findElement(By.xpath("//select[@id = 'locationSelect']")));
+        if (type.equals("moon"))
+            planetType.selectByIndex(0);
+        else planetType.selectByIndex(1);
+    }
+
+    public void submit() {
+        submitButton.click();
+    }
+
+    public void delete() {
+        deleteButton.click();
     }
 
 

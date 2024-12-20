@@ -12,7 +12,7 @@ Feature: Deleting Moons/Planets
   Scenario: Delete Non-Existent Planet
     Given user does not have planet "Proxima B"
     When user deletes planet "Proxima B"
-    Then browser alert shows "Invalid Moon Name"
+    Then browser alert shows "Invalid moon name"
 
   Scenario: Delete Existing Moon
     Given user has a moon "Luna"
@@ -22,4 +22,4 @@ Feature: Deleting Moons/Planets
   Scenario: Delete Non-Existent Moon
     Given user does not have moon "Non Est"
     When user deletes moon "Non Est"
-    Then browser alert shows "Invalid Moon Name"
+    Then browser alert shows "Invalid moon name"

@@ -47,7 +47,7 @@ public class Signup {
         }
     }
 
-    public void submitRegister() {
+    public void submit() {
         TestRunner.driver
                 .findElement(By.xpath("//input[@type='submit']"))
                 .click();

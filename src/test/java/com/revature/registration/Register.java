@@ -5,6 +5,8 @@ import com.revature.TestRunner;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Register {
 
@@ -61,7 +63,7 @@ public class Register {
 
     @And("user submits their inputs")
     public void userSubmitsTheirInputs() {
-        TestRunner.signup.submitRegister();
+        TestRunner.signup.submit();
     }
 
     @Then("user receives browser alert {string}")
@@ -75,6 +77,8 @@ public class Register {
 
     @And("user is sent back to the Login page")
     public void userIsSentBackToTheLoginPage() {
+        TestRunner.wait.until(ExpectedConditions.titleIs("Planetarium Login"));
+
         Assert.assertEquals("http://localhost:8080/", TestRunner.driver.getCurrentUrl());
     }
 
