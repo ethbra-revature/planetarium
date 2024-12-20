@@ -1,14 +1,10 @@
 package com.revature.pom;
 
 import com.revature.TestRunner;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.File;
-import java.nio.file.Path;
 import java.util.List;
 
 public class Home {
