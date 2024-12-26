@@ -2,29 +2,31 @@
 
 A foray into test automation
 
-This project demonstrates fundamental automated testing practices and 
-design. This provides practical experience and a visual proof of my ability
-during training. The testing suite looks for incompatibility between the 
-functionality of the web application and our test plan using boundary 
-value analysis and equivalence partitioning. 
+This project demonstrates the skills learned for automated testing practices
+and design! It's a visual proof of my ability during training and gives
+practical experience. 
+
+This testing suite looks for incompatibility between the 
+functionality of the web application and our test plan, using **boundary 
+value analysis** and **equivalence partitioning**. We have no access to 
+code, so we're going in blind! 
 
 ## Technologies
 
-- **Jira** helps systematize ticketing issues
+- **Jira** streamlines issue management like a pro!
     - **AIO Tests** helps automate information pipelines between Java 
       reports and Jira  
 - **JUnit** is the de facto standard for implementing tests in a Java project
-- **Cucumber** integrates visually interpretable steps and features with 
-  the testing suit
-  - **Gherkin** syntax embeds natural language in test steps to help 
-    multidisciplinary stakeholders understand testing issues
+- **Cucumber** helps integrate interpretable steps and features with 
+  the testing suite for clarity
+  - **Gherkin** embeds natural language in test steps to help 
+    everyone stay on the same page
 - **Selenium** powerfully integrates browser actions in Java 
 
 ## Structure
 
 Features were categorized into celestial bodies (`bodies`), then further
 into core functions (`Add.java`, `Delete.java`, etc.). 
-
 
 ````
  📂revature 
@@ -51,9 +53,8 @@ into core functions (`Add.java`, `Delete.java`, etc.).
 
 ### Features
 
-The features are a way of communicating in natural language how we
-should walk through the test, what inputs should be made, and how
-the webpage should react.
+Features describe how we should walk through the test in natural 
+language; what inputs should be made? How should the page react? 
 
 My features follow the basic structure found in the user stories:
 `register`, `log in`, `view`, `add`,
