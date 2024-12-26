@@ -3,7 +3,7 @@ Feature: User Registration
 
   Background:
     Given user is on Login page
-    When user clicks "register"
+    When user clicks register
     Then they are sent to the Register page
 
   Scenario Outline: Successful Registration
