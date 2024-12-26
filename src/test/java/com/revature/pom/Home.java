@@ -11,9 +11,6 @@ import java.util.List;
 
 public class Home {
 
-    @FindBy(xpath = "//img")
-    private List<WebElement> images;
-
     @FindBy(xpath = "//input[@id = 'deleteInput']")
     private WebElement bodyName;
 
@@ -82,7 +79,7 @@ public class Home {
     }
 
     public int countBodies() {
-        images = TestRunner.driver.findElements(By.xpath("//img"));
+        List<WebElement> images = TestRunner.driver.findElements(By.xpath("//img"));
         return images.size();
     }
 
