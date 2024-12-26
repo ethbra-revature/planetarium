@@ -81,13 +81,19 @@ actually change depending on whether you want to do something with a moon or
 a planet. This isn't terribly challenging, but it's going to need more complexity
 in its POM representation
 
-![](https://imgur.com/in2oqR0)
-
 
 ## Testing
 
+Once I've assessed the website to find all the elements and interactions I may need
+to build the POMs and I've fleshed out the feature files, the implementation of the
+tests becomes quite easy. All it takes is looking at the steps and matching them to
+the browser interactions.
 
 
 ## Retrospective
 
+### Challenges
 
+- Browser alerts
+- Duplicate methods / Consolidation
+- Detecting table updates
