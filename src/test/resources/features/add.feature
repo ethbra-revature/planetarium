@@ -12,7 +12,6 @@ Feature: Add Moons/Planets to Home Page
     Then browser alert says "<alert>"
     And table reflects "<alert>"
 
-    #Fix this to make it actually work for inputs
     Examples:
       | planet_name                        | file                                                                                                         | alert                       |
       | My 1st _Planet-                    | C:\Users\ethan\IdeaProjects\revature\Project Planetarium\src\test\resources\Celestial-Images\moon-1.jpg      |                             |
@@ -32,7 +31,6 @@ Feature: Add Moons/Planets to Home Page
     And table reflects "<alert>"
 
 
-      # Do we need a file type to enter (one of the moon rules is about file type handling)
     Examples:
       | moon_name                        | planet_id | alert                     |
       | My 4th_Moon-                     | 1         |                           |
@@ -49,7 +47,6 @@ Feature: Add Moons/Planets to Home Page
     Then browser alert says "<alert>"
     And table reflects "<alert>"
 
-      # Do we need a file type to enter (one of the moon rules is about file type handling)
     Examples:
       | moon_name    | planet_id | file                                                                                                                         | alert             |
       | My 6th_Moon- | 1         | C:\Users\ethan\IdeaProjects\revature\Project Planetarium\src\test\resources\Celestial-Images\rick-roll-rick-astley.gif       | Invalid File Type |
