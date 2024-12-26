@@ -2,24 +2,20 @@
 Feature: Deleting Moons/Planets
 
   Background:
-    Given user is logged in
+    Given user on Home page
+    And user is logged in
 
-  Scenario: Delete Existing Planet
-    Given user has a planet "Mars"
-    When user deletes planet "Mars"
-    Then Home page updates
+    Scenario Outline: Delete Planet
+      When user selects "<body-type>" option
+      And user enters "<name>"
+      And user presses delete
+      Then browser alert says "<alert>"
+      And table reflects deletion by "<alert>"
 
-  Scenario: Delete Non-Existent Planet
-    Given user does not have planet "Proxima B"
-    When user deletes planet "Proxima B"
-    Then browser alert shows "Invalid moon name"
 
-  Scenario: Delete Existing Moon
-    Given user has a moon "Luna"
-    When user deletes moon "Luna"
-    Then Home page updates
-
-  Scenario: Delete Non-Existent Moon
-    Given user does not have moon "Non Est"
-    When user deletes moon "Non Est"
-    Then browser alert shows "Invalid moon name"
+      Examples:
+      |body-type        |name                     |alert                |
+      |planet           |Mars                     |                     |
+      |planet           |Proxima B                |Invalid planet name  |
+      |moon             |Luna                     |                     |
+      |moon             |Non Est                  |Invalid moon name    |

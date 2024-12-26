@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Home {
 
-    @FindBy(tagName = "tr")
+    @FindBy(xpath = "//img")
     private List<WebElement> images;
 
     @FindBy(xpath = "//input[@id = 'deleteInput']")
@@ -33,7 +33,7 @@ public class Home {
     @FindBy(xpath = "//button[@class='submit-button']")
     private WebElement submitButton;
 
-    @FindBy(xpath = "//button[@id='deleteButton'")
+    @FindBy(xpath = "//button[@id='deleteButton']")
     private WebElement deleteButton;
 
     @FindBy(xpath = "//h1")
@@ -46,19 +46,19 @@ public class Home {
         PageFactory.initElements(TestRunner.driver, this);
     }
 
-    public int countBodies() {
-        return images.size() - 1;
+    public void fillDeletionText(String body) {
+        bodyName.sendKeys(body);
     }
 
-    public void enterPlanet(String planetName) {
+    public void fillPlanetText(String planetName) {
         this.planetName.sendKeys(planetName);
     }
 
-    public void enterMoon(String moonName) {
+    public void fillMoonText(String moonName) {
         this.moonName.sendKeys(moonName);
     }
 
-    public void enterID(String id) {
+    public void fillIdText(String id) {
         this.planetID.sendKeys(id);
     }
 
@@ -67,7 +67,7 @@ public class Home {
     }
 
     public void selectType(String type) {
-        Select planetType =new Select(TestRunner.driver.findElement(By.xpath("//select[@id = 'locationSelect']")));
+        Select planetType = new Select(TestRunner.driver.findElement(By.xpath("//select[@id = 'locationSelect']")));
         if (type.equals("moon"))
             planetType.selectByIndex(0);
         else planetType.selectByIndex(1);
@@ -81,5 +81,9 @@ public class Home {
         deleteButton.click();
     }
 
+    public int countBodies() {
+        images = TestRunner.driver.findElements(By.xpath("//img"));
+        return images.size();
+    }
 
 }

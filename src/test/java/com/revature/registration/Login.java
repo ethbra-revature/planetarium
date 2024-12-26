@@ -6,18 +6,6 @@ import org.junit.Assert;
 
 public class Login {
 
-/*
-    @AfterStep("@US2")
-    public void pause() {
-        System.out.println("Pausing US2");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
- */
-
     @Then("user is sent to Home page")
     public void userIsSentToHomePage() {
         Assert.assertEquals("http://localhost:8080/planetarium", TestRunner.driver.getCurrentUrl());

@@ -42,7 +42,6 @@ public class Setup {
                 }
             }
             conn.commit();
-            System.out.println("Database setup complete");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }

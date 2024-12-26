@@ -2,7 +2,6 @@ package com.revature.pom;
 
 import com.revature.TestRunner;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,8 +23,8 @@ public class Signup {
     private WebElement registerLink;
 
 
-    public Signup(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+    public Signup() {
+        PageFactory.initElements(TestRunner.driver, this);
     }
 
     public void clickRegister() {

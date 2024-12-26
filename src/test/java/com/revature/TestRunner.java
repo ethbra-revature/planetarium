@@ -17,7 +17,9 @@ import java.time.Duration;
 @CucumberOptions(
         features = "classpath:features",
         glue = "com.revature",
-        plugin = {"pretty", "html:src/test/resources/reports/report.html"}
+        plugin = {"pretty",
+                "html:src/test/resources/reports/report.html",
+        "json:src/test/resources/reports/report.json"}
 )
 public class TestRunner {
 
@@ -32,9 +34,9 @@ public class TestRunner {
     public static void setup() {
         driver = new FirefoxDriver();
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        wait = new WebDriverWait(driver, Duration.ofMillis(2));
 
-        signup = new Signup(driver);
+        signup = new Signup();
 
         home = new Home();
 

@@ -1,4 +1,5 @@
 @US2
+@excludeReset
 Feature: Logging in
 
   Background:

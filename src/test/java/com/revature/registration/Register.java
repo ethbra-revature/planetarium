@@ -1,19 +1,12 @@
 package com.revature.registration;
 
-import com.revature.Setup;
 import com.revature.TestRunner;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Register {
 
-    @Before
-    public void resetDB() {
-        Setup.resetTestDatabase();
-    }
 
     @Given("user is on Login page")
     public void userIsOnLoginPage() {
@@ -22,8 +15,8 @@ public class Register {
         Assert.assertEquals("http://localhost:8080/", TestRunner.driver.getCurrentUrl());
     }
 
-    @When("user clicks {string}")
-    public void userClicks(String arg0) {
+    @When("user clicks register")
+    public void userClicks() {
         System.out.println("Click register button");
 
         TestRunner.signup.clickRegister();
