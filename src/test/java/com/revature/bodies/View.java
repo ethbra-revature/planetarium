@@ -1,13 +1,17 @@
 package com.revature.bodies;
 
 import com.revature.TestRunner;
+import io.cucumber.java.BeforeStep;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
+import javax.swing.text.Element;
 import java.util.List;
 
 public class View {
@@ -40,7 +44,17 @@ public class View {
             Assert.fail("User gained access while logged out");
 
         } catch (Exception e) {
-            System.out.println("User is denied access");
+            TestRunner.logger.info("User is denied access");
+            Assert.assertTrue(true);
+        }
+    }
+
+    @And("user looks for Mars")
+    public void userLooksForMars() {
+        try {
+            TestRunner.driver.findElement(By.xpath("//td[contains(text(),'Mars')]"));
+            Assert.fail("User accessed another person's data");
+        } catch (NoSuchElementException e) {
             Assert.assertTrue(true);
         }
     }

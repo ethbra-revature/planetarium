@@ -10,18 +10,22 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features",
+        features = "classpath:features/delete.feature",
         glue = "com.revature",
         plugin = {"pretty",
                 "html:src/test/resources/reports/report.html",
         "json:src/test/resources/reports/report.json"}
 )
 public class TestRunner {
+
+    public static Logger logger = LoggerFactory.getLogger(TestRunner.class);
 
     public static WebDriver driver = null;
 

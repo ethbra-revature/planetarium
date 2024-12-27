@@ -2,8 +2,7 @@ package com.revature.bodies;
 
 import com.revature.TestRunner;
 import com.revature.util.Steps;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.junit.Assert;
 
 public class Delete {
@@ -47,4 +46,8 @@ public class Delete {
         }
     }
 
+    @Then("{string} is deleted")
+    public void isDeleted(String arg0) {
+        Assert.assertFalse(TestRunner.home.findBody(arg0));
+    }
 }

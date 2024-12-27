@@ -31,7 +31,7 @@ public class Add {
             Assert.fail("Planetarium didn't load");
 
         } catch (NoSuchElementException e) {
-            System.out.println("Successful login");
+            TestRunner.logger.info("successful login");
 
         }
     }
@@ -91,14 +91,13 @@ public class Add {
         int numOfRowsNew = Steps.getTableCount();
 
         if (arg0.isEmpty()) {
-            System.out.printf("Rows have updated, numRows should be different %n" +
-                    "old: %d , new: %d %n", numOfRows, numOfRowsNew);
+
+            TestRunner.logger.warn("Rows should be different %n old: {}, new: {}", numOfRows, numOfRowsNew);
 
             Assert.assertNotEquals(numOfRows, numOfRowsNew);
 
         } else {
-            System.out.printf("Rows haven't updated, numRows should be the same %n" +
-                    "old: %d , new: %d %n", numOfRows, numOfRowsNew);
+            TestRunner.logger.warn("Rows shouldn't be different %n old: {}, new: {}", numOfRows, numOfRowsNew);
 
             Assert.assertEquals(numOfRows, numOfRowsNew);
 

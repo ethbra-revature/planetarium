@@ -83,4 +83,15 @@ public class Home {
         return images.size();
     }
 
+
+    // interesting
+    public boolean findBody(String arg0) {
+        try {
+            TestRunner.driver.findElement(By.xpath("//td[(text() = '" + arg0 + "')]"));
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
 }

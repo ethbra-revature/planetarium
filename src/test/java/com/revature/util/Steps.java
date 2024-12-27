@@ -3,7 +3,9 @@ package com.revature.util;
 import com.revature.Setup;
 import com.revature.TestRunner;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -17,7 +19,8 @@ public class Steps {
 
     @Before("@US4 or @US5")
     public void login() {
-        System.out.println("Logging in...");
+        TestRunner.logger.debug("Connecting to site...");
+
         TestRunner.driver.get("http://localhost:8080/");
 
         try {
@@ -26,9 +29,9 @@ public class Steps {
             TestRunner.signup.submit();
 
         } catch (Exception e) {
-            System.out.printf("Incorrect input type, %s %n", e.getMessage());
-        }
+            TestRunner.logger.error("Incorrect input type, {}", e.getMessage());
 
+        }
     }
 
     @Before("not @excludeReset")
@@ -52,19 +55,18 @@ public class Steps {
         try {
             Alert alertElement = TestRunner.driver.switchTo().alert();
             String alert = alertElement.getText();
-            System.out.printf("Browser alert: %s", alert);
+            TestRunner.logger.info("Browser alert: {}", alert);
 
-            if (arg0.isEmpty()){
-                alertElement.accept();
+            if (arg0.isEmpty()) {
+                alertElement.dismiss();
                 Assert.fail("Action was supposed to succeed, but alert showed instead");
                 return;
             }
 
-            alertElement.accept();
+            alertElement.dismiss();
             Assert.assertEquals(arg0, alert);
 
-        }
-        catch (NoAlertPresentException e) {
+        } catch (NoAlertPresentException e) {
             if (!arg0.isEmpty()) { // arg0 specifies browser alert, but didn't happen
                 Assert.fail("Alert was supposed to appear, but didn't.");
             }
@@ -80,7 +82,8 @@ public class Steps {
             TestRunner.signup.insertText("Iamthenight1939", "password");
 
         } catch (Exception e) {
-            System.out.printf("Incorrect input type, %s %n", e.getMessage());
+            TestRunner.logger.error("Incorrect input type, {}", e.getMessage());
+
         }
 
         TestRunner.signup.submit();
@@ -104,5 +107,29 @@ public class Steps {
 
             return numOfRows;
         }
+    }
+
+    @When("user creates account and logs in")
+    public void createAccount() {
+        TestRunner.driver.get("http://localhost:8080/");
+        TestRunner.signup.clickRegister();
+        try {
+            TestRunner.signup.insertText("MyNewAccount1", "username");
+            TestRunner.signup.insertText("NewAccountPassword2", "password");
+            TestRunner.signup.submit();
+
+            browserAlertSays("Account created successfully");
+
+            TestRunner.signup.insertText("MyNewAccount1", "username");
+            TestRunner.signup.insertText("NewAccountPassword2", "password");
+            TestRunner.signup.submit();
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+
     }
 }

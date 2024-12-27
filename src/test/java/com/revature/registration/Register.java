@@ -17,8 +17,7 @@ public class Register {
 
     @When("user clicks register")
     public void userClicks() {
-        System.out.println("Click register button");
-
+        TestRunner.logger.info("Register button clicked");
         TestRunner.signup.clickRegister();
     }
 
@@ -30,7 +29,6 @@ public class Register {
 
     @When("user provides username {string}")
     public void userProvidesUsername(String arg0) {
-        System.out.println("User provides username " + arg0);
 
         try {
             TestRunner.signup.insertText(arg0, "username");
@@ -43,7 +41,6 @@ public class Register {
 
     @And("user provides password {string}")
     public void userProvidesPassword(String arg0) {
-        System.out.println("User provides password " + arg0);
 
         try {
             TestRunner.signup.insertText(arg0, "password");

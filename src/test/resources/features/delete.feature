@@ -5,7 +5,7 @@ Feature: Deleting Moons/Planets
     Given user on Home page
     And user is logged in
 
-    Scenario Outline: Delete Planet
+  Scenario Outline: Delete Planet
       When user selects "<body-type>" option
       And user enters "<name>"
       And user presses delete
@@ -19,3 +19,10 @@ Feature: Deleting Moons/Planets
       |planet           |Proxima B                |Invalid planet name  |
       |moon             |Luna                     |                     |
       |moon             |Non Est                  |Invalid moon name    |
+
+
+    Scenario: Moons removed on planet delete
+      When user selects planet option
+      When user enters "Mars"
+      And user presses delete
+      Then "Titan" is deleted

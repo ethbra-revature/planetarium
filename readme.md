@@ -8,7 +8,7 @@ practical experience
 
 This testing suite looks for incompatibility between the 
 functionality of the web application and our test plan, using **boundary 
-value analysis** and **equivalence partitioning**. We have no access to 
+value analysis**, **equivalence partitioning**, and manual testing. We have no access to 
 code, so we're going in blind! 
 
 ## Technologies
@@ -92,8 +92,16 @@ the browser interactions.
 
 ## Retrospective
 
+### Successes
+
+-  
+
 ### Challenges
 
 - Browser alerts
 - Duplicate methods / Consolidation
 - Detecting table updates
+
+### Next Sprint
+Next sprint would involve the continuation of the software testing lifecycle, like
+addressing issues in the source code, test for those changes
