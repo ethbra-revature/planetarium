@@ -94,14 +94,21 @@ the browser interactions.
 
 ### Successes
 
--  
+[//]: # (What did you exceed in doing well?)
+
+- Consistently ahead of schedule
+- Personal research is crucial (Gherkin guides, Selenium docs)
+- Understanding the test suite model (runner -> cucumber -> handlers) 
 
 ### Challenges
 
 - Browser alerts
 - Duplicate methods / Consolidation
 - Detecting table updates
+- "Guess-and-check" development
 
 ### Next Sprint
-Next sprint would involve the continuation of the software testing lifecycle, like
-addressing issues in the source code, test for those changes
+Next sprint would involve the continuation of the **defect lifecycle**, like
+addressing posed issues in the source code, testing for those changes, verifying, 
+and so forth. A test suite would also require more in-depth tests, such as unit 
+or integration testing. This would entail getting the source code as well.
